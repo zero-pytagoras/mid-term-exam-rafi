@@ -1,11 +1,13 @@
 #!/usr/bin/env bash
-
+# safe header missing
 set -euo pipefail
 
 if [[ $EUID -ne 0 ]]; then
     echo "Please run as root or with sudo"
     exit 1
 fi
+
+# script not informative
 
 API_KEY=${API_KEY:-changeme}
 VERSION=${VERSION:-1.0.0}
@@ -36,6 +38,6 @@ nginx -t
 
 systemctl enable nginx
 systemctl restart nginx
-
+# missing stucture
 echo "Installation completed successfully"
 echo "Service available at: http://localhost/"
