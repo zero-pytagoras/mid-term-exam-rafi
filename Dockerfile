@@ -1,10 +1,10 @@
 FROM python:3.12-slim
 
-RUN useradd -m appuser
+RUN useradd -m appuser # why add user and create him home folder if you're using /app as home ?
 
 WORKDIR /app
 
-COPY pyproject.toml .
+COPY pyproject.toml . # too many COPY
 
 RUN pip install poetry && \
     poetry config virtualenvs.create false && \
